@@ -14,4 +14,4 @@ Tools:
 Live Demo
 ===
 
-[http://labs.henocdz.com/tweetless/ Demo]
+[http://labs.henocdz.com/tweetless/]
