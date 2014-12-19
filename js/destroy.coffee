@@ -20,7 +20,7 @@ $ ->
         html = $("""
         <div class="tweet">
             <p>#{text}</p>
-            <a href="#" class="delete-link" data-tweet-id="#{id}">Eliminar</a>
+            <a href="#" class="delete-link" title="Delete" alt="Delete" data-tweet-id="#{id}"><i class="fa fa-trash"/></a>
         </div>""")
         return html
 
@@ -90,6 +90,7 @@ $ ->
         e.preventDefault();
         hello.logout('twitter').then ->
             switchButtons(true)
+            feed.text('')
         ,(e)->
             alert('Error')
 

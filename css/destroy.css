@@ -25,6 +25,19 @@ header #slogan .textless {
   color: #D52020;
   text-decoration: line-through;
 }
+#login {
+  text-align: center;
+  margin: 1.5em auto;
+  color: red;
+  font-weight: bold;
+}
+#login #logout_btn {
+  display: none;
+  color: inherit;
+}
+#login a:hover {
+  text-decoration: underline;
+}
 #feed {
   display: block;
   width: 70%;

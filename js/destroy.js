@@ -18,7 +18,7 @@
     });
     renderTweet = function(id, text, date) {
       var html;
-      html = $("<div class=\"tweet\">\n    <p>" + text + "</p>\n    <a href=\"#\" class=\"delete-link\" data-tweet-id=\"" + id + "\">Eliminar</a>\n</div>");
+      html = $("<div class=\"tweet\">\n    <p>" + text + "</p>\n    <a href=\"#\" class=\"delete-link\" title=\"Delete\" alt=\"Delete\" data-tweet-id=\"" + id + "\"><i class=\"fa fa-trash\"/></a>\n</div>");
       return html;
     };
     retrieveTweets = function(callback, max_id) {
@@ -99,7 +99,8 @@
     logout_btn.on('click', function(e) {
       e.preventDefault();
       return hello.logout('twitter').then(function() {
-        return switchButtons(true);
+        switchButtons(true);
+        return feed.text('');
       }, function(e) {
         return alert('Error');
       });
