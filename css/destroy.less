@@ -1,24 +1,63 @@
+@font-face{ 
+	font-family: 'bellota-regular';
+	src: url('./fonts/bellota/bellota_regular/Bellota-Regular-webfont.eot');
+	src: url('./fonts/bellota/bellota_regular/Bellota-Regular-webfont.eot?iefix') format('eot'),
+	     url('./fonts/bellota/bellota_regular/Bellota-Regular-webfont.woff') format('woff'),
+	     url('./fonts/bellota/bellota_regular/Bellota-Regular-webfont.ttf') format('truetype');
+}
+
 body, html{
 	margin: 0;
 	padding: 0;
+	font-family: "bellota-regular", Helvetica;
+	font-size: 14px;
+	background-image: url('../img/geometry.png');
+
+}
+
+header{
+	#logo{
+		display: block;
+		margin: 0 auto;
+		margin-top: 1em;
+		max-width: 38%;
+	}
+
+	#slogan{
+		text-align: center;
+		font-size: 1.2em;
+
+		.textless{
+			color: #D52020;
+			text-decoration: line-through;
+		}
+	}
 }
 
 #feed{
 	display: block;
-	width: 60%;
+	width: 70%;
 	margin: 0 auto;
 	
 	.tweet{
-		display: block;
-		width: 100%;
+		background: #FAFAFA;
+		border-radius: 5px;
+		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		display: inline-block;
 		margin: 1em auto;
-		background: #E0E0E0;
-		
+		vertical-align: top;
+		width: 47%;
+		border: 1px solid #CCC;
+
+		&:nth-child(2n+1){
+			margin-right: 2%;
+		}
+
 		a.delete-link{
 			color: red;
 			float: right;
 		}
 
-		padding: 0.5em 0;
+		padding: 0.5em;
 	}
 }

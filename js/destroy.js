@@ -45,7 +45,6 @@
     deleteTweet = function(callback, id) {
       var uri;
       uri = "https://api.twitter.com/1.1/statuses/destroy/" + id + ".json";
-      console.log(uri);
       return hello('twitter').api(uri, 'post').then(function(res) {
         if (callback) {
           return callback(res);
@@ -71,7 +70,7 @@
           tweet = tweets[_i];
           feed.append(renderTweet(tweet.id_str, tweet.text));
         }
-        if (total < 2000 && !(first_tweet.id === last_tweet.id)) {
+        if (total < 20 && !(first_tweet.id === last_tweet.id)) {
           return retrieveTweets(listTweets, max_id);
         }
       } else {
@@ -120,10 +119,10 @@
       that = $(this);
       id = that.data('tweet-id') || null;
       if (id) {
+        that.parent('div').css('opacity', 0.5);
         return deleteTweet(function(res, e) {
-          console.log(res);
           if (!e && !res.errors) {
-            return that.parent('div').slideUp();
+            return that.parent('div').remove();
           }
         }, id);
       }

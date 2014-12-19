@@ -44,7 +44,6 @@ $ ->
 
     deleteTweet = (callback, id)->
         uri = "https://api.twitter.com/1.1/statuses/destroy/#{id}.json"
-        console.log(uri)
         hello('twitter').api(uri, 'post').then (res)->
             if callback
                 callback(res)
@@ -64,7 +63,7 @@ $ ->
 
             for tweet in tweets
                 feed.append(renderTweet(tweet.id_str, tweet.text))
-            if total < 2000 and not (first_tweet.id is last_tweet.id)
+            if total < 20 and not (first_tweet.id is last_tweet.id)
                 retrieveTweets(listTweets, max_id)
                 
         else            
@@ -107,10 +106,10 @@ $ ->
         that = $(@)
         id = that.data('tweet-id') || null
         if id
+            that.parent('div').css('opacity', 0.5)
             deleteTweet((res, e)->
-                console.log res
                 if not e and not res.errors
-                    that.parent('div').slideUp()
+                    that.parent('div').remove()
             , id)
 
 
