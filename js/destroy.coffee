@@ -4,7 +4,7 @@ NETWORK = 'twitter'
 
 
 $ ->
-
+    LIMIT = 2000
     login_btn = $('#login_btn')
     logout_btn = $('#logout_btn')
     feed = $('#feed')
@@ -63,7 +63,7 @@ $ ->
 
             for tweet in tweets
                 feed.append(renderTweet(tweet.id_str, tweet.text))
-            if total < 20 and not (first_tweet.id is last_tweet.id)
+            if total < LIMIT and not (first_tweet.id is last_tweet.id)
                 retrieveTweets(listTweets, max_id)
                 
         else            

@@ -6,7 +6,8 @@
   NETWORK = 'twitter';
 
   $(function() {
-    var deleteTweet, feed, isLoggedIn, listTweets, login_btn, logout_btn, renderTweet, retrieveTweets, switchButtons, total, tweetsList, updateTweets;
+    var LIMIT, deleteTweet, feed, isLoggedIn, listTweets, login_btn, logout_btn, renderTweet, retrieveTweets, switchButtons, total, tweetsList, updateTweets;
+    LIMIT = 2000;
     login_btn = $('#login_btn');
     logout_btn = $('#logout_btn');
     feed = $('#feed');
@@ -70,7 +71,7 @@
           tweet = tweets[_i];
           feed.append(renderTweet(tweet.id_str, tweet.text));
         }
-        if (total < 20 && !(first_tweet.id === last_tweet.id)) {
+        if (total < LIMIT && !(first_tweet.id === last_tweet.id)) {
           return retrieveTweets(listTweets, max_id);
         }
       } else {
